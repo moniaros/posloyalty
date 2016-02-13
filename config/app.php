@@ -1,7 +1,13 @@
 <?php
 
 return [
-
+    /*
+      |--------------------------------------------------------------------------
+      | Application Uploads Directory
+      |--------------------------------------------------------------------------
+      |
+     */
+    'upload_directory' => 'uploads',
     /*
       |--------------------------------------------------------------------------
       | Application Environment
@@ -137,6 +143,7 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        'App\Providers\FileHelperProvider',
         App\Providers\RouteServiceProvider::class,
     ],
     /*

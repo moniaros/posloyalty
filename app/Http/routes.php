@@ -38,9 +38,13 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('/', "DashboardController@index");
 
     Route::resource('rewards', "RewardsController");
+    
+    Route::post('/promo', 'PromoController@store');
 });
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('products', 'ProductsController@products');
     Route::get('rewards', 'RewardsController@index');
+    Route::get('promo', 'PromoController@index');
+    Route::get('promo/json', 'PromoController@json');
 });
