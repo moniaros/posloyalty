@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class SalesController extends Controller {
+class StoresController extends Controller {
 
     public function index() {
-        return view('sales/index');
+        return view('stores/index');
     }
     
-    public function upload(Request $request) {
+    public function store(Request $request) {
         
     }
 

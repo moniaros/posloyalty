@@ -41,7 +41,8 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/') }}">Dashboard</a></li>
+                        <li><a href="{{ url('/') }}">Sales</a></li>
+                        <li><a href="{{ url('/stores') }}">Stores</a></li>
                         <li><a href="{{ url('/rewards') }}">Rewards</a></li>
                         <li><a href="{{ url('/promo') }}">Latest Promo</a></li>
                     </ul>

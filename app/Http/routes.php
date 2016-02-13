@@ -35,11 +35,10 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['middleware' => ['web', 'auth']], function () {
 //Route::group(['middleware' => ['web']], function () {
-    Route::get('/', "DashboardController@index");
-
-    Route::resource('rewards', "RewardsController");
-    
-    Route::post('/promo', 'PromoController@store');
+    Route::get('/', "SalesController@index");
+    Route::resource('stores', "StoresController");  
+    Route::resource('rewards', "RewardsController");  
+    Route::post('promo', 'PromoController@store');
 });
 
 Route::group(['middleware' => ['web']], function () {

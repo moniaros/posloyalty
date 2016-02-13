@@ -7,11 +7,13 @@
     var _rewardValueProductsTmp;
 
     var reward;
+    var editMode = false;
 
     $(document).ready(function () {
 
         try {
             reward = JSON.parse($('meta[name=reward]').attr('content'));
+            editMode = true;
         } catch (e) {
             reward = {};
         }
@@ -22,7 +24,7 @@
 
         console.log(reward);
 
-        if (reward) {
+        if (editMode) {
             setFormEditMode(reward);
             form_utilities.setFieldValues("#reward_form", reward);
         }

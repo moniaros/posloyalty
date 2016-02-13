@@ -14,6 +14,7 @@
 </div>
 @endif
 
+<!--Will be updated by js - reward_fields.js if edit mode is detected-->
 <form id="reward_form" action="/rewards" method="POST">
 
 {!!Form::token()!!}
