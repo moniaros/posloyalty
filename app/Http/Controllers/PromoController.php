@@ -37,7 +37,7 @@ class PromoController extends Controller {
     public function store(Request $request, FileHelper $fileHelper) {
 
         $file  = array('promo_image' => $request->file('promo_image'));
-        $rules = array('promo_image' => 'required|mimes:jpeg,bmp,png|max:10000');
+        $rules = array('promo_image' => 'mimes:jpeg,bmp,png|max:10000');
 
         $validator = Validator::make($file, $rules);
         if ($validator->fails()) {
@@ -45,16 +45,26 @@ class PromoController extends Controller {
             // send back to the page with the input data and errors
             return Redirect::back()->withInput()->withErrors($validator);
         } else {
-            $user       = Auth::user();
+//            $user       = Auth::user();
             $promoImage = $request->file('promo_image');
 
-            $promo = new Promo();
+            $promo = Promo::orderBy('id', 'desc')->first();
 
-            $promo->image_file = $fileHelper->upload($promoImage);            
+            if (!$promo) {
+                $promo = new Promo();
+            }
+
+            $promo->description = $request->description;
+            if ($promoImage) {
+                $promo->image_file = $fileHelper->upload($promoImage);
+            }
+
             $promo->save();
 
             Session::flash('success', 'Upload successful');
             return Redirect::back();
+//            return view('promo');
+//            return redirect()->back()->withMessage("Saved");
         }
     }
 
