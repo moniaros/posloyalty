@@ -73,6 +73,8 @@ class RewardsController extends Controller {
     }
 
     private function _saveReward(Request $request, $id) {
+        
+        //  TODO: move this to a request object
         $v = Validator::make($request->all(), [
                     'reward_condition' => 'required',
                     'reward'           => 'required',

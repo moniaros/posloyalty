@@ -12,7 +12,9 @@ class VerifyCsrfToken extends BaseVerifier {
      * @var array
      */
     protected $except = [
-        'user/login'
+        'user/login',
+        'stores/*/device/register',
+        'customers'
     ];
 
 }

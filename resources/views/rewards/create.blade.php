@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('meta')
-<meta name="reward_conditions" content="width=device-width, initial-scale=1">
+<meta name="reward_conditions" content="">
 @endsection
 
 @section('content')

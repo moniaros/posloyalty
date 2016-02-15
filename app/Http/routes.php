@@ -36,8 +36,10 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => ['web', 'auth']], function () {
 //Route::group(['middleware' => ['web']], function () {
     Route::get('/', "SalesController@index");
-    Route::resource('stores', "StoresController");  
-    Route::resource('rewards', "RewardsController");  
+    Route::resource('stores', "StoresController");
+    Route::get('stores/{id}/delete', "StoresController@delete");
+    Route::resource('rewards', "RewardsController");
+    Route::resource('customers', "CustomersController");
     Route::post('promo', 'PromoController@store');
 });
 
@@ -46,4 +48,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('rewards', 'RewardsController@index');
     Route::get('promo', 'PromoController@index');
     Route::get('promo/json', 'PromoController@json');
+
+    Route::post('stores/{id}/device/register', 'StoresController@registerDevice');
+    Route::post('stores/{id}/device/test', 'StoresController@registerDevice');
+
+    Route::post('customers', "CustomersController@store");
 });

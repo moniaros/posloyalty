@@ -1,8 +1,33 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid">    
     <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <h4>Sales</h4>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-success" style="float:right" data-toggle="modal">
+                <i class="glyphicon glyphicon-download-alt"></i>
+                Get Report
+            </button>
+        </div>
+        <div class="col-md-10 col-md-offset-1">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Store</th>
+                        <th>Date</th>
+                        <th>Total Amount</th>
+                        <th>Discount</th>
+                        <th>Customer</th>
+                        <th></th>                        
+                    </tr>
+                </thead>
+                <tbody>                    
+                </tbody>
+            </table>
+        </div>
     </div>
 </div
 @endsection
