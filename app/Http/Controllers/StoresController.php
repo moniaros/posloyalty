@@ -19,6 +19,10 @@ class StoresController extends Controller {
 
         return view('stores/index', $data);
     }
+    
+    public function withoutDevice() {
+        return Store::where('device_id', null)->get();
+    }
 
     public function create() {
         return view('stores/create');

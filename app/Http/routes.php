@@ -31,11 +31,14 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/user/login', "UsersController@login");
     Route::post('/auth/login', "Auth\AuthController@postLogin");
     Route::get('/auth/logout', "Auth\AuthController@getLogout");
+    
+    Route::get('stores/nodevice', 'StoresController@withoutDevice');
+    
 });
 
 Route::group(['middleware' => ['web', 'auth']], function () {
 //Route::group(['middleware' => ['web']], function () {
-    Route::get('/', "SalesController@index");
+    Route::get('/', "SalesController@index");    
     Route::resource('stores', "StoresController");
     Route::get('stores/{id}/delete', "StoresController@delete");
     Route::resource('rewards', "RewardsController");
@@ -47,10 +50,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('products', 'ProductsController@products');
     Route::get('rewards', 'RewardsController@index');
     Route::get('promo', 'PromoController@index');
-    Route::get('promo/json', 'PromoController@json');
-
+    Route::get('promo/json', 'PromoController@json');    
+    
     Route::post('stores/{id}/device/register', 'StoresController@registerDevice');
-    Route::post('stores/{id}/device/test', 'StoresController@registerDevice');
-
-    Route::post('customers', "CustomersController@store");
+    Route::post('stores/{id}/device/test', 'StoresController@registerDevice');    
+    
+    Route::post('customers', "CustomersController@store");        
 });
