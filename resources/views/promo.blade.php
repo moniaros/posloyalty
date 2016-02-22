@@ -35,7 +35,11 @@
 
                 <div class="form-group">
                     <label>Advertisement Text (Will Appear on customer phones):</label>
+                    @if ($promo)
                     <textarea class="form-control" name="description">{{$promo->description}}</textarea>
+                    @else
+                    <textarea class="form-control" name="description"></textarea>
+                    @endif
                 </div>
                 
                 <div class="form-group">

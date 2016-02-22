@@ -7,10 +7,10 @@
             <h4>Sales</h4>
         </div>
         <div class="col-md-2">
-            <button type="button" class="btn btn-success" style="float:right" data-toggle="modal">
+            <a href="/sales/export" target="_blank" type="button" class="btn btn-success" style="float:right" data-toggle="modal">
                 <i class="glyphicon glyphicon-download-alt"></i>
                 Get Report
-            </button>
+            </a>
         </div>
         <div class="col-md-10 col-md-offset-1">
             <table class="table table-striped">
@@ -24,7 +24,21 @@
                         <th></th>                        
                     </tr>
                 </thead>
-                <tbody>                    
+                <tbody> 
+                    @foreach($salesList AS $salesTransaction)
+                    <tr>
+                        <td>{{$salesTransaction->store->name}}</td>
+                        <td>{{$salesTransaction->transaction_date}}</td>
+                        <td>{{$salesTransaction->amount}}</td>
+                        <td>{{$salesTransaction->total_discount}}</td>
+                        @if ($salesTransaction->customer)
+                        <td>{{$salesTransaction->customer->name}}</td>
+                        @else
+                        <td>Not registered</td>                        
+                        @endif                        
+                        <td></td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

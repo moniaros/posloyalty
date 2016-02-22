@@ -37,7 +37,9 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['middleware' => ['web', 'auth']], function () {
 //Route::group(['middleware' => ['web']], function () {
-    Route::get('/', "SalesController@index");
+    Route::get('/', "SalesController@index");    
+    Route::get('/sales/export', "SalesController@export");    
+
     Route::resource('stores', "StoresController");
     Route::get('stores/{id}/delete', "StoresController@delete");
     Route::resource('rewards', "RewardsController");
@@ -55,4 +57,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('stores/{id}/device/test', 'StoresController@registerDevice');
 
     Route::post('customers', "CustomersController@store");
+    
+    //  TODO: move to auth later
+    Route::post('sales/upload', 'SalesController@upload');
 });

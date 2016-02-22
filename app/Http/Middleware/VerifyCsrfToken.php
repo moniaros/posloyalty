@@ -14,7 +14,8 @@ class VerifyCsrfToken extends BaseVerifier {
     protected $except = [
         'user/login',
         'stores/*/device/register',
-        'customers'
+        'customers',
+        'sales/upload'
     ];
 
 }

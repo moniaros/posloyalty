@@ -32,7 +32,11 @@
 
                     <tr>
                         <td>{{$reward->reward_condition}}</td>
-                        <td>{{$reward->condition_product_id}}</td>
+                        @if ($reward->condition_product_id)
+                        <td>{{$reward->product->name}}</td>
+                        @else
+                        <td></td>
+                        @endif                        
                         <td>{{$reward->condition}}</td>
                         <td>{{$reward->condition_value}}</td>
                         <td>{{$reward->reward_type}}</td>
